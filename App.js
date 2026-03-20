@@ -1,4 +1,18 @@
-const heading = React.createElement("h1", {}, "h1 from react")
-console.log(heading)
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+const Body = () =>{
+    return <div id="body">
+        This is the bodey to demonstrate Component Composition
+    </div>
+}
+const Heading = () => {
+    return <div>
+        <h1 className='heading'>Hello from React!</h1>
+        {Body()}
+        <Body/>
+        <Body></Body>
+        </div>
+}
 const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(heading)
+root.render(<Heading/>)
