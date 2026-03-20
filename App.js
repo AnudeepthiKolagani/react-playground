@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 
 const Body = () =>{
     return <div id="body">
-        This is the bodey to demonstrate Component Composition
+        This is the body to demonstrate Component Composition
     </div>
 }
 const Heading = () => {
