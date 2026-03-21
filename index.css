@@ -1,3 +1,45 @@
-h1{
-    color: red
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-items: center;
+    padding: 0px 20px;
+    border: 1px solid rgb(177, 171, 171);
+}
+
+.navItems > ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.navItems > ul >li{
+    list-style-type: none;
+    padding: 0px 10px;
+    font-size: 24px;
+}
+
+.search{
+    padding: 10px
+}
+
+.cardsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 10px
+}
+
+.card{
+    width: 200px;
+    padding: 5px 5px
+}
+
+.card:hover{
+    background-color: rgb(243, 239, 239);
+    border: 1px solid black; 
+    cursor: pointer
+}
+
+.cardImage{
+    width: 180px;
+    height: 150px
 }
