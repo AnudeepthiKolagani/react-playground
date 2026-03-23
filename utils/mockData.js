@@ -7,7 +7,7 @@ const restaurentList = [
     resName: "KFC",
     cuisine: "Burgers, Pizza",
     rating: 4.0,
-    deliveryTime: "30 minutes",
+    deliveryTime: 20,
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const restaurentList = [
     resName: "Pista house",
     cuisine: "Biryani, Chicken",
     rating: 4.6,
-    deliveryTime: "40 minutes",
+    deliveryTime: 27,
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const restaurentList = [
       "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/11/29/dc90cc06-f883-430d-be4b-75141c8064d9_6b832721-694c-4df4-96f0-308388144da0.jpg",
     cuisine: "Burgers, Coke",
     rating: 4.2,
-    deliveryTime: "32 minutes",
+    deliveryTime: 30,
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const restaurentList = [
     resName: "KFC",
     cuisine: "Burgers, Pizza",
     rating: 4.0,
-    deliveryTime: "30 minutes",
+    deliveryTime: 40,
   },
   {
     id: 5,
@@ -43,7 +43,7 @@ const restaurentList = [
     resName: "KFC",
     cuisine: "Burgers, Pizza",
     rating: 4.0,
-    deliveryTime: "30 minutes",
+    deliveryTime: 10,
   },
 ];
 
