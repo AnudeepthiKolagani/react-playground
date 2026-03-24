@@ -42,5 +42,18 @@
 
 .cardImage{
     width: 180px;
-    height: 150px
+    height: 150px;
+    margin: 10px
+}
+
+.shimmer_container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer_card{
+    width: 200;
+    height: 400px;
+    margin: 10px;
+    background-color: beige;
 }

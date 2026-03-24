@@ -1,13 +1,10 @@
+import { APP_LOGO } from "../../utils/constants";
 // Header component
 const Header = () => {
   return (
     <div className="header">
       <div className="logo">
-        <img
-          width="100px"
-          alt="Company logo"
-          src="https://cdn2.f-cdn.com/contestentries/2426851/74260034/6689bc27dfb41_thumb900.jpg"
-        />
+        <img width="100px" alt="Company logo" src={APP_LOGO} />
       </div>
       <div className="navItems">
         <ul>
@@ -20,4 +17,4 @@ const Header = () => {
   );
 };
 
-export default Header
+export default Header;
