@@ -1,13 +1,16 @@
+import { APP_LOGO } from "../../utils/constants";
+
 // Cards component
-const Cards = ({ restaurentData }) => {
-  const { imageURL, resName, cuisine, rating, deliveryTime } = restaurentData;
+const Cards = ({ productData }) => {
+  const { title, description, category, rating, tags } = productData;
   return (
     <div className="card">
-      <img src={imageURL} alt="food image" className="cardImage" />
-      <h4>{resName}</h4>
-      <h4>{cuisine}</h4>
-      <h4>{rating}</h4>
-      <h5>{deliveryTime} minutes</h5>
+      <img src={APP_LOGO} alt="product image" className="cardImage" />
+      <h4>{title}</h4> 
+      <h5>{rating}</h5>
+      <h4>{category} - {tags}</h4>
+      <p>{description}</p>
+      
     </div>
   );
 };
