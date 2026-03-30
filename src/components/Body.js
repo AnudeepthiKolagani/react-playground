@@ -1,28 +1,47 @@
-import { uesState, useState } from "react";
+import { useState, useEffect } from "react";
 import Cards from "./Cards";
-import restaurentData from "../../utils/mockData";
+import Shimmer from "./Shimmer";
+
 // Body component
 const Body = () => {
-  let [restaurentList, setrestaurentList] = useState(restaurentData);
+  let [productsList, setProductsList] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch("https://dummyjson.com/products");
+
+    const res = await data.json();
+    //Optional chaining
+    setProductsList(res?.products);
+  };
+
+  if (productsList.length === 0) {
+    // Shimmer UI
+    return <Shimmer />;
+  }
+
   return (
     <div className="body">
       <div className="filter">
         <button
           className="filter-btn"
           onClick={() => {
-            let filteredList = restaurentList.filter(
-              (restaurent) => restaurent.deliveryTime <= 30,
+            let filteredList = productsList.filter(
+              (product) => product.rating >= 4,
             );
-            setrestaurentList(filteredList);
+            setProductsList(filteredList);
           }}
         >
           {" "}
-          Less delivery time
+          Filter by rating
         </button>
       </div>
       <div className="cardsContainer">
-        {restaurentList.map((restaurent) => (
-          <Cards key={restaurent.id} restaurentData={restaurent} />
+        {productsList.map((product) => (
+          <Cards key={product.id} productData={product} />
         ))}
       </div>
     </div>
