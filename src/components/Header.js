@@ -14,7 +14,7 @@ const Header = () => {
           <li>Home</li>
           <li>About</li>
           <li>Cart</li>
-          <li onClick={() => setIsLoggedIn(!isLoggedIn)}>
+          <li className="loginBtn" onClick={() => setIsLoggedIn(!isLoggedIn)}>
             {isLoggedIn ? "Logout" : "Login"}
           </li>
         </ul>

@@ -4,7 +4,9 @@ import Shimmer from "./Shimmer";
 
 // Body component
 const Body = () => {
-  let [productsList, setProductsList] = useState([]);
+  const [productsList, setProductsList] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredproductsList, setFilteredProductsList] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -16,6 +18,14 @@ const Body = () => {
     const res = await data.json();
     //Optional chaining
     setProductsList(res?.products);
+    setFilteredProductsList(res?.products);
+  };
+
+  const handleSearch = () => {
+    let filteredData = productsList.filter((product) => {
+      return product.title.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    setFilteredProductsList(filteredData);
   };
 
   if (productsList.length === 0) {
@@ -26,6 +36,17 @@ const Body = () => {
   return (
     <div className="body">
       <div className="filter">
+        <input
+          type="text"
+          placeholder="Search products..."
+          className="searchInput"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button className="searchBtn" onClick={handleSearch}>
+          {" "}
+          Search
+        </button>
         <button
           className="filter-btn"
           onClick={() => {
@@ -40,7 +61,7 @@ const Body = () => {
         </button>
       </div>
       <div className="cardsContainer">
-        {productsList.map((product) => (
+        {filteredproductsList.map((product) => (
           <Cards key={product.id} productData={product} />
         ))}
       </div>
