@@ -6,6 +6,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
 import About from "./components/About";
 import Products from "./components/Products";
 import Error from "./components/Error";
+import AboutClass from "./components/AboutClass";
 
 // Layout for our App
 const AppLayout = () => {
@@ -22,10 +23,10 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    errorElement:<Error/>,
+    errorElement: <Error />,
     children: [
       { path: "/", element: <Body /> },
-      { path: "/about", element: <About /> },
+      { path: "/about", element: <AboutClass name={"Parent class"} /> },
       { path: "/product/:id", element: <Products /> },
     ],
   },
