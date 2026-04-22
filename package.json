@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "A structured repository for revising React fundamentals, core concepts, and hands-on practice with examples and mini projects.",
   "scripts": {
-    "start" : "parcel index.html",
-    "build" : "parcel build index.html",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "author": "Anudeepthi Kolagani",
@@ -14,9 +14,10 @@
   },
   "dependencies": {
     "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.14.1"
   },
-  "browserslist":[
+  "browserslist": [
     "last 2 versions"
   ]
 }
