@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Cards from "./Cards";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router";
 
 // Body component
 const Body = () => {
@@ -62,7 +63,9 @@ const Body = () => {
       </div>
       <div className="cardsContainer">
         {filteredproductsList.map((product) => (
-          <Cards key={product.id} productData={product} />
+          <Link to={`/product/${product.id}`} key={product.id}>
+            <Cards productData={product} />
+          </Link>
         ))}
       </div>
     </div>
