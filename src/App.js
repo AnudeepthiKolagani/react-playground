@@ -27,7 +27,7 @@ const appRouter = createBrowserRouter([
     children: [
       { path: "/", element: <Body /> },
       { path: "/about", element: <AboutClass name={"Parent class"} /> },
-      { path: "/product/:id", element: <Products /> },
+      { path: "/product/:productId", element: <Products /> },
     ],
   },
 ]);
