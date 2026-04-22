@@ -3,6 +3,7 @@ import Cards from "./Cards";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import dotenv from "dotenv";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 // Body component
 const Body = () => {
   const [productsList, setProductsList] = useState([]);
@@ -29,10 +30,20 @@ const Body = () => {
     setFilteredProductsList(filteredData);
   };
 
+  const onlineStatus = useOnlineStatus()
+
+  if(onlineStatus === false){
+    return <div>
+      <h2>You are Offline</h2>
+      <div>Please check your internet connection and try again !!</div>
+    </div>
+  }
+
   if (productsList.length === 0) {
     // Shimmer UI
     return <Shimmer />;
   }
+
 
   return (
     <div className="body">
