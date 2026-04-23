@@ -2,19 +2,20 @@ import { useState, useEffect } from "react";
 import Cards from "./Cards";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
-
+import dotenv from "dotenv";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 // Body component
 const Body = () => {
   const [productsList, setProductsList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredproductsList, setFilteredProductsList] = useState([]);
+  const PRODUCTS_API = process.env.REACT_PRODUCTS_API;
 
   useEffect(() => {
     fetchData();
   }, []);
-
   const fetchData = async () => {
-    const data = await fetch("https://dummyjson.com/products");
+    const data = await fetch(PRODUCTS_API);
 
     const res = await data.json();
     //Optional chaining
@@ -29,10 +30,20 @@ const Body = () => {
     setFilteredProductsList(filteredData);
   };
 
+  const onlineStatus = useOnlineStatus()
+
+  if(onlineStatus === false){
+    return <div>
+      <h2>You are Offline</h2>
+      <div>Please check your internet connection and try again !!</div>
+    </div>
+  }
+
   if (productsList.length === 0) {
     // Shimmer UI
     return <Shimmer />;
   }
+
 
   return (
     <div className="body">

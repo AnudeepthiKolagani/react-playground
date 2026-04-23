@@ -31,7 +31,9 @@
 
 .card{
     width: 200px;
-    padding: 5px 5px
+    padding: 5px 5px;
+    background-color: rgb(241, 236, 236);
+    margin: 10px;
 }
 
 .card:hover{
@@ -68,4 +70,17 @@
 .searchInput, .searchBtn{
     padding: 10px;
     margin: 10px
+}
+
+.product-details{
+    width: 40%;
+    margin: auto;
+    flex-wrap: wrap;
+    padding: 20px;
+    text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
