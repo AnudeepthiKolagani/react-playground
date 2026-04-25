@@ -30,13 +30,15 @@ const Body = () => {
     setFilteredProductsList(filteredData);
   };
 
-  const onlineStatus = useOnlineStatus()
+  const onlineStatus = useOnlineStatus();
 
-  if(onlineStatus === false){
-    return <div>
-      <h2>You are Offline</h2>
-      <div>Please check your internet connection and try again !!</div>
-    </div>
+  if (onlineStatus === false) {
+    return (
+      <div>
+        <h2>You are Offline</h2>
+        <div>Please check your internet connection and try again !!</div>
+      </div>
+    );
   }
 
   if (productsList.length === 0) {
@@ -44,35 +46,39 @@ const Body = () => {
     return <Shimmer />;
   }
 
-
   return (
     <div className="body">
-      <div className="filter">
+      <div className="filter flex justify-center items-center gap-2 m-4">
+        <div className="px-4 py-1 border rounded-lg bg-blue-300 ">
+          <button
+            className="filter-btn"
+            onClick={() => {
+              let filteredList = productsList.filter(
+                (product) => product.rating >= 4,
+              );
+              setProductsList(filteredList);
+            }}
+          >
+            {" "}
+            Filter by rating
+          </button>
+        </div>
         <input
           type="text"
           placeholder="Search products..."
-          className="searchInput"
+          className="searchInput w-96 border border-gray-500 rounded-lg p-1 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button className="searchBtn" onClick={handleSearch}>
+        <button
+          className="searchBtn px-2 border border-blue-50 bg-blue-500 text-white rounded-md p-1"
+          onClick={handleSearch}
+        >
           {" "}
           Search
         </button>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            let filteredList = productsList.filter(
-              (product) => product.rating >= 4,
-            );
-            setProductsList(filteredList);
-          }}
-        >
-          {" "}
-          Filter by rating
-        </button>
       </div>
-      <div className="cardsContainer">
+      <div className="cardsContainer flex flex-wrap gap-2">
         {filteredproductsList.map((product) => (
           <Link to={`/product/${product.id}`} key={product.id}>
             <Cards productData={product} />
