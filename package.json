@@ -3,20 +3,34 @@
   "version": "1.0.0",
   "description": "A structured repository for revising React fundamentals, core concepts, and hands-on practice with examples and mini projects.",
   "scripts": {
-    "start" : "parcel index.html",
-    "build" : "parcel build index.html",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "author": "Anudeepthi Kolagani",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.16.4"
+    "autoprefixer": "^10.5.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.1",
+    "events": "^3.3.0",
+    "os-browserify": "^0.3.0",
+    "parcel": "^2.16.4",
+    "path-browserify": "^1.0.1",
+    "postcss": "^8.5.10",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0",
+    "string_decoder": "^1.3.0",
+    "tailwindcss": "^3.4.19",
+    "vm-browserify": "^1.1.2"
   },
   "dependencies": {
+    "dotenv": "^17.4.2",
     "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.14.1"
   },
-  "browserslist":[
+  "browserslist": [
     "last 2 versions"
   ]
 }
