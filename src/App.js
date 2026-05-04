@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,18 +7,21 @@ import About from "./components/About";
 import Products from "./components/Products";
 import Error from "./components/Error";
 import AboutClass from "./components/AboutClass";
+import UserContext from "../utils/UserContext";
 
 // Lazy loading Food component
 const Food = lazy(() => import("./components/Food"));
-
 // Layout for our App
 const AppLayout = () => {
+  const [loggedInUser, setLoggedInUser] = useState("");
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-      {/* <Footer /> */}
-    </div>
+    <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+        {/* <Footer /> */}
+      </div>
+    </UserContext.Provider>
   );
 };
 
