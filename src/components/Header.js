@@ -1,12 +1,15 @@
 import { useContext, useState } from "react";
-
 import { APP_LOGO } from "../../utils/constants";
 import { Link } from "react-router";
 import UserContext from "../../utils/UserContext";
+import { useSelector } from "react-redux";
+
 // Header component
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const {loggedInUser} = useContext(UserContext)
+
+  const cartItems = useSelector(store => store.cart.items)
   return (
     <div className="header flex justify-between items-center p-4 bg-gray-100">
       <div className="logo w-16">
@@ -21,7 +24,7 @@ const Header = () => {
             <Link to="/about">About</Link>
           </li>
           <li className="px-4">
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">Cart - ({cartItems.length})</Link>
           </li>
           <li className="loginBtn px-4" onClick={() => setIsLoggedIn(!isLoggedIn)}>
             {isLoggedIn ? "Logout" : "Login"}

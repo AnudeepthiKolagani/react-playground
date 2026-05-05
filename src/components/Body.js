@@ -80,7 +80,7 @@ const Body = () => {
           {" "}
           Search
         </button>
-        
+
         <div>
           <input
             className="border border-gray-500 rounded-lg p-1"
@@ -92,9 +92,7 @@ const Body = () => {
       </div>
       <div className="cardsContainer flex flex-wrap gap-2">
         {filteredproductsList.map((product) => (
-          <Link to={`/product/${product.id}`} key={product.id}>
-            <Cards productData={product} />
-          </Link>
+          <Cards productData={product} key={product.id} />
         ))}
       </div>
     </div>
