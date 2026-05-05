@@ -8,6 +8,9 @@ import Products from "./components/Products";
 import Error from "./components/Error";
 import AboutClass from "./components/AboutClass";
 import UserContext from "../utils/UserContext";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import Cart from "./components/Cart";
 
 // Lazy loading Food component
 const Food = lazy(() => import("./components/Food"));
@@ -16,11 +19,13 @@ const AppLayout = () => {
   const [loggedInUser, setLoggedInUser] = useState("");
   return (
     <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
-      <div className="app">
-        <Header />
-        <Outlet />
-        {/* <Footer /> */}
-      </div>
+      <Provider store={store}>
+        <div className="app">
+          <Header />
+          <Outlet />
+          {/* <Footer /> */}
+        </div>
+      </Provider>
     </UserContext.Provider>
   );
 };
@@ -42,6 +47,7 @@ const appRouter = createBrowserRouter([
           </Suspense>
         ),
       },
+      { path: "/cart", element: <Cart /> }
     ],
   },
 ]);
