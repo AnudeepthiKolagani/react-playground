@@ -1,15 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Cards from "./Cards";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import dotenv from "dotenv";
 import useOnlineStatus from "../../utils/useOnlineStatus";
+import UserContext from "../../utils/UserContext";
 // Body component
 const Body = () => {
   const [productsList, setProductsList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredproductsList, setFilteredProductsList] = useState([]);
   const PRODUCTS_API = process.env.REACT_PRODUCTS_API;
+
+  const {loggedInUser, setLoggedInUser} =useContext(UserContext)
 
   useEffect(() => {
     fetchData();
@@ -77,12 +80,19 @@ const Body = () => {
           {" "}
           Search
         </button>
+
+        <div>
+          <input
+            className="border border-gray-500 rounded-lg p-1"
+            placeholder="Enter your name"
+            value={loggedInUser}
+            onChange={(e) => setLoggedInUser(e.target.value)}
+          />
+        </div>
       </div>
       <div className="cardsContainer flex flex-wrap gap-2">
         {filteredproductsList.map((product) => (
-          <Link to={`/product/${product.id}`} key={product.id}>
-            <Cards productData={product} />
-          </Link>
+          <Cards productData={product} key={product.id} />
         ))}
       </div>
     </div>
