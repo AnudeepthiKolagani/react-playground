@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { APP_LOGO } from "../../utils/constants";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import UserContext from "../../utils/UserContext";
 import { useSelector } from "react-redux";
 
@@ -21,12 +21,18 @@ const Header = () => {
             <Link to="/">Home</Link>
           </li>
           <li className="px-4">
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li className="px-4">
             <Link to="/about">About</Link>
           </li>
           <li className="px-4">
             <Link to="/cart">Cart - ({cartItems.length})</Link>
           </li>
-          <li className="loginBtn px-4" onClick={() => setIsLoggedIn(!isLoggedIn)}>
+          <li
+            className="loginBtn px-4 cursor-pointer"
+            onClick={() => setIsLoggedIn(!isLoggedIn)}
+          >
             {isLoggedIn ? "Logout" : "Login"}
           </li>
           <li className="px-4 font-bold">{loggedInUser}</li>

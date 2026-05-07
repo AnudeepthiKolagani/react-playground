@@ -2,7 +2,7 @@ import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import About from "./components/About";
 import Products from "./components/Products";
 import Error from "./components/Error";
@@ -11,6 +11,7 @@ import UserContext from "../utils/UserContext";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import Cart from "./components/Cart";
+import Contact from "./components/Contact";
 
 // Lazy loading Food component
 const Food = lazy(() => import("./components/Food"));
@@ -47,7 +48,8 @@ const appRouter = createBrowserRouter([
           </Suspense>
         ),
       },
-      { path: "/cart", element: <Cart /> }
+      { path: "/cart", element: <Cart /> },
+      { path: "/contact", element: <Contact /> }
     ],
   },
 ]);

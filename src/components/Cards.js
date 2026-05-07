@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { APP_LOGO } from "../../utils/constants";
 import { addItem } from "../store/slices/cartSlice";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 // Cards component
 const Cards = ({ productData }) => {
