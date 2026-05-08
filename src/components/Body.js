@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import Cards from "./Cards";
 import Shimmer from "./Shimmer";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import dotenv from "dotenv";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 import UserContext from "../../utils/UserContext";
