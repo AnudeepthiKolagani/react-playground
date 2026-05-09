@@ -7,9 +7,9 @@ import { useSelector } from "react-redux";
 // Header component
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const {loggedInUser} = useContext(UserContext)
+  const { loggedInUser } = useContext(UserContext);
 
-  const cartItems = useSelector(store => store.cart.items)
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="header flex justify-between items-center p-4 bg-gray-100">
       <div className="logo w-16">
@@ -26,7 +26,7 @@ const Header = () => {
           <li className="px-4">
             <Link to="/about">About</Link>
           </li>
-          <li className="px-4">
+          <li className="px-4" data-testid="cart-link">
             <Link to="/cart">Cart - ({cartItems.length})</Link>
           </li>
           <li
