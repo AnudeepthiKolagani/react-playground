@@ -12,7 +12,10 @@ const Cards = ({ productData }) => {
     dispatch(addItem(productData));
   };
   return (
-    <div className="card w-[350px] bg-gray-100 hover:bg-gray-200 rounded-lg p-4">
+    <div
+      data-testid="product-card"
+      className="card w-[350px] bg-gray-100 hover:bg-gray-200 rounded-lg p-4"
+    >
       <Link to={`/product/${productData.id}`}>
         <img src={images?.[0]} alt="product image" className="cardImage" />
         <h4 className="font-bold text-lg text-blue-600">{title}</h4>
