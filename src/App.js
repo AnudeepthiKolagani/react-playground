@@ -13,7 +13,6 @@ import { store } from "./store/store";
 import Cart from "./components/Cart";
 import Contact from "./components/Contact";
 import Parent from "./components/Parent";
-import ShadCn from "./components/ShadCn";
 
 // Lazy loading Food component
 const Food = lazy(() => import("./components/Food"));
@@ -53,7 +52,6 @@ const appRouter = createBrowserRouter([
       { path: "/cart", element: <Cart /> },
       { path: "/contact", element: <Contact /> },
       { path: "/memoization", element: <Parent /> },
-      { path: "/shadcn", element: <ShadCn /> },
     ],
   },
 ]);

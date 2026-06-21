@@ -17,9 +17,7 @@ const Header = () => {
       </div>
       <div className="navItems ">
         <ul className="flex m-2">
-          <li className="px-4">
-            <Link to="/shadcn">Shad Cn</Link>
-          </li>
+          
           <li className="px-4">
             <Link to="/memoization">Memoization</Link>
           </li>
